@@ -1,6 +1,6 @@
 import web3
 
-address = web3.Web3().toChecksumAddress("0x95066025af40f7f7832f61422802cd1e13c23753")
+address = web3.Web3().toChecksumAddress("0xf38593388079f7f5130d605e38abf6090d981ec2")
 ABI = [
     {"type": "constructor", "inputs": [], "stateMutability": "nonpayable"},
     {
