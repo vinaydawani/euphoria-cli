@@ -1,21 +1,12 @@
-from typing import Pattern
-from eth_typing import abi
-from pyfiglet import Figlet
-import web3
 import click
 import re
+from pyfiglet import Figlet
 
-from assets import staking, sWAGMI, WAGMI
+from helpers.web3Helper import w3
+from service import dashboard_service, stake_service
 
-provider = web3.HTTPProvider("https://api.s0.t.hmny.io")
-w3 = web3.Web3(provider)
-
-user_hmny_addr = ""
+user_hmny_addr = "0x18bdAD1211eed7808Dbca6Beb6a387F5F9c77Efd"
 hmny_addr_pattern = re.compile(r"^0x[a-fA-F0-9]{40}$")
-
-staking_contract = w3.eth.contract(address=staking.address, abi=staking.ABI)
-WAGMI_contract = w3.eth.contract(address=WAGMI.address, abi=WAGMI.ABI)
-sWAGMI_contract = w3.eth.contract(address=sWAGMI.address, abi=sWAGMI.ABI)
 
 
 @click.group(invoke_without_command=True)
@@ -36,8 +27,19 @@ def euphoria(ctx, address):
 
 
 @euphoria.command()
-def info():
-    ...
+def dashboard():
+    data = dashboard_service.getData()
+    for k, v in data.items():
+        # click.echo(f"{k}: {v}")
+        click.secho(f"{k}", fg="blue", nl=False)
+        click.echo(":", nl=False)
+        click.secho(f" {v}", fg="green")
+
+
+@euphoria.command()
+def stake():
+    data = stake_service.getData(user_hmny_addr)
+    click.echo(data)
 
 
 if __name__ == "__main__":

@@ -38,6 +38,7 @@ regex==2021.11.10
 requests==2.26.0
 rlp==2.0.1
 six==1.16.0
+termcolor==1.1.0
 tomli==1.2.2
 toolz==0.11.2
 typing-extensions==4.0.0
@@ -46,3 +47,4 @@ varint==1.0.2
 web3==5.24.0
 websockets==9.1
 yarl==1.7.2
+yaspin==2.1.0
