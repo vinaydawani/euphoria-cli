@@ -30,7 +30,6 @@ def euphoria(ctx, address):
 def dashboard():
     data = dashboard_service.getData()
     for k, v in data.items():
-        # click.echo(f"{k}: {v}")
         click.secho(f"{k}", fg="blue", nl=False)
         click.echo(":", nl=False)
         click.secho(f" {v}", fg="green")
@@ -39,7 +38,10 @@ def dashboard():
 @euphoria.command()
 def stake():
     data = stake_service.getData(user_hmny_addr)
-    click.echo(data)
+    for k, v in data.items():
+        click.secho(f"{k}", fg="blue", nl=False)
+        click.echo(":", nl=False)
+        click.secho(f" {v}", fg="green")
 
 
 if __name__ == "__main__":
