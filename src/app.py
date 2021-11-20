@@ -2,8 +2,12 @@ import click
 import re
 from pyfiglet import Figlet
 
-from helpers.web3Helper import w3
-from service import dashboard_service, stake_service
+try:
+    from helpers.web3Helper import w3
+    from service import dashboard_service, stake_service
+except ImportError:
+    from .helpers.web3Helper import w3
+    from .service import dashboard_service, stake_service
 
 user_hmny_addr = "0x18bdAD1211eed7808Dbca6Beb6a387F5F9c77Efd"
 hmny_addr_pattern = re.compile(r"^0x[a-fA-F0-9]{40}$")

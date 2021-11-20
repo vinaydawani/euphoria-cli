@@ -1,9 +1,15 @@
 import math
 
-from abi import staking, WAGMI, sWAGMI
-from helpers.token_price import loadTokenPrices
-from helpers.web3Helper import buildContract
-from helpers.spinner_helper import spinner
+try:
+    from abi import staking, WAGMI, sWAGMI
+    from helpers.token_price import loadTokenPrices
+    from helpers.web3Helper import buildContract
+    from helpers.spinner_helper import spinner
+except ImportError:
+    from ..abi import staking, WAGMI, sWAGMI
+    from ..helpers.token_price import loadTokenPrices
+    from ..helpers.web3Helper import buildContract
+    from ..helpers.spinner_helper import spinner
 
 with spinner:
     wagmi_price = loadTokenPrices(

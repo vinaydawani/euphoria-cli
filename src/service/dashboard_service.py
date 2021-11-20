@@ -1,4 +1,7 @@
-from store import euphoriaData
+try:
+    from store import euphoriaData
+except ImportError:
+    from ..store import euphoriaData
 
 
 def getData():
