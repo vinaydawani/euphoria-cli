@@ -16,6 +16,7 @@ setup(
     url="https://github.com/vinaydawani/euphoria-cli",
     keywords="euphoria WAGMI sWAGMI blockchain rebase token bonding staking bond stake",
     long_description=read("README.md"),
+    long_description_content_type="text/markdown",
     packages=find_packages(),
     include_package_data=True,
     install_requires=["Click", "pyfiglet", "requests", "web3", "halo"],
