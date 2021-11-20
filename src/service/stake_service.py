@@ -1,7 +1,3 @@
-import web3
-import abi
-
-from helpers import web3Helper
 from store import euphoriaData, userData
 
 

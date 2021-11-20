@@ -22,7 +22,7 @@ def euphoria(ctx, address):
             return
     if ctx.invoked_subcommand is None:
         f = Figlet(font="larry3d")
-        click.echo(f.renderText("euphoria"))
+        click.secho(f.renderText("euphoria"), fg="green")
         click.echo("Stake WAGMI and earn harmonious compounding interest (🤝,🤝)")
 
 
