@@ -5,9 +5,11 @@ from pyfiglet import Figlet
 try:
     from helpers.web3Helper import w3
     from service import dashboard_service, stake_service
+    from __version__ import __version__
 except ImportError:
     from .helpers.web3Helper import w3
     from .service import dashboard_service, stake_service
+    from .__version__ import __version__
 
 user_hmny_addr = "0x18bdAD1211eed7808Dbca6Beb6a387F5F9c77Efd"
 hmny_addr_pattern = re.compile(r"^0x[a-fA-F0-9]{40}$")
@@ -16,15 +18,18 @@ hmny_addr_pattern = re.compile(r"^0x[a-fA-F0-9]{40}$")
 @click.group(invoke_without_command=True)
 @click.pass_context
 @click.option("--address", "-a", help="Set the account address in '0x' format")
-def euphoria(ctx, address):
-    if address:
+@click.option("-v", "--version", help="Version of the app", is_flag=True)
+def euphoria(ctx, address, version):
+    if version:
+        click.echo(__version__)
+    elif address:
         res = hmny_addr_pattern.match(str(address))
         if res:
             user_hmny_addr = w3.toChecksumAddress(address)
             click.echo(f"Address saved => {address}")
         else:
             return
-    if ctx.invoked_subcommand is None:
+    elif ctx.invoked_subcommand is None:
         f = Figlet(font="larry3d")
         click.secho(f.renderText("euphoria"), fg="green")
         click.echo("Stake WAGMI and earn harmonious compounding interest (🤝,🤝)")

@@ -7,7 +7,7 @@ def read(name):
 
 
 setup(
-    name="Euphoria_CLI",
+    name="Euphoria",
     version="0.1.0",
     author="Vinay Dawani",
     author_email="vdawani6@gmail.com",
@@ -23,7 +23,7 @@ setup(
     python_requires=">=3.7",
     entry_points={"console_scripts": ["euphoria = src.app:euphoria"]},
     classifiers=[
-        "License :: OSI Approved :: MIT License",
+        "License :: OSI Approved :: GNU License",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.9",
     ],
