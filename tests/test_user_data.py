@@ -19,7 +19,7 @@ class TestUserData(unittest.TestCase):
             "wagmi": 0,
             "swagmi": 0,
         }
-        self.assertEquals(res, schema)
+        self.assertEqual(res, schema)
 
     @unittest.expectedFailure
     def test_get_user_balance_no_address(self):
