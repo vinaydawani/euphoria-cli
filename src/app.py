@@ -1,6 +1,6 @@
 import click
 import re
-from pyfiglet import Figlet
+from art import text2art
 
 try:
     from helpers.web3Helper import w3
@@ -30,8 +30,8 @@ def euphoria(ctx, address, version):
         else:
             return
     elif ctx.invoked_subcommand is None:
-        f = Figlet(font="larry3d")
-        click.secho(f.renderText("euphoria"), fg="green")
+        x = text2art("euphoria", font="larry3d")
+        click.secho(x, fg="green")
         click.echo("Stake WAGMI and earn harmonious compounding interest (🤝,🤝)")
 
 
