@@ -3,9 +3,9 @@ name: Publish to PyPI
 on:
   push:
     branches:
-      - "main"
+      - main
     tags:
-      - "v*"
+      - v*
 
 jobs:
   deploy:

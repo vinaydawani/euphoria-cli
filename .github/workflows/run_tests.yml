@@ -3,11 +3,11 @@ name: Project Test Cases
 on:
   push:
     branches:
-     - master
+     - main
      - dev
   pull_request:
     branches:
-     - master
+     - main
 
 jobs:
   test:
