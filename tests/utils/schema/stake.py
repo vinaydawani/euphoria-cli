@@ -1,13 +1,13 @@
 schema_basic_info = {
-    "APY": "number",
-    "TVL": "number",
-    "Current Index": "number",
+    "APY": "string",
+    "TVL": "string",
+    "Current Index": "string",
 }
 
 schema_user_data = {
-    "Your Balance": "number",
-    "Your Staked Balance": "number",
-    "Next Reward Amount": "number",
-    "Next Reward Yield": "number",
-    "ROI (5-Day Rate)": "number",
+    "Your Balance": "string",
+    "Your Staked Balance": "string",
+    "Next Reward Amount": "string",
+    "Next Reward Yield": "string",
+    "ROI (5-Day Rate)": "string",
 }
