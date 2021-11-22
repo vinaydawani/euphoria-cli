@@ -1,5 +1,4 @@
 import unittest
-import web3
 import json
 import jsonschema
 from src.store.userData import get_user_balance
