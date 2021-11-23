@@ -1,4 +1,4 @@
-name: Project Test Cases
+name: Project Test Cases and linting
 
 on:
   push:
@@ -10,6 +10,17 @@ on:
      - main
 
 jobs:
+  lint:
+    name: formatting with black
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: psf/black@stable
+        with:
+          options: "--verbose --check"
+          src: "./src"
+        
   test:
     name: run test
     runs-on: ubuntu-20.04
